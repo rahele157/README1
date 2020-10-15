@@ -1,85 +1,120 @@
 
 # CONTENTS OF THIS FILE
----------------------
-
+---
  * **Introduction**
  * **Contributurs**
+ * **Libraries**
  * **Making an ".exe" file**
+ * **How the program runs**
  * **How to run** 
  * **Refrences**
   
-
+---
 ## INTRODUCTION
--------
+----
+---
 
-Rotor machine cipher uses two cylinders to change the order of the characters to encrypt. The inner cylinder turns after typing one character, and the outer one changes after 26 rotation of the inner rotary. The cylinders have two columns with random digits. First, each typed character represents a number of the first column of the fast cylinder. Then, that number finds itself on the second column and points to the corresponded one on the outer router. After finding itself on the second column of the slower rotary, that number shows a ciphered character.  
+> Rotor machine cipher uses two cylinders to change the order of the characters to encrypt. The inner cylinder turns after typing one character, and the outer one changes after 26 rotation of the inner rotary. The cylinders have two columns with random digits. First, each typed character represents a number of the first column of the fast cylinder. Then, that number finds itself on the second column and points to the corresponded one on the outer router. After finding itself on the second column of the slower rotary, that number shows a ciphered character.  
+
+---                
+
+## CONTRIBUTURES
+---
+---
+| Name                 | Email                 |
+| -------------------- | ----------------------|
+| Reza Aliyari         | *<raliyari@nyit.edu>* |
+| Ali Azizpour         | *<aazizpou@nyit.edu>* |
+| Raheleh Sheikhansari | *<rsheikha@nyit.edu>* |
 
 ---
-## CONTRIBUTURES
-----------------------
-
-* Reza Aliyari *<raliyari@nyit.edu>*
-* Ali Azizpour *<aazizpou@nyit.edu>*
-* Raheleh Sheikhansari *<rsheikha@nyit.edu>*
-
+## LIBRARIES 
+---
+---
+* System;
+* System.Collections;
+* System.Collections.Generic;
+* System.Linq;
 ---
 ## MAKING AN ".EXE" FILE
------------------------
-Using Mono is a practical way To creat an .exe file for Windows. 
-1. First, download the Mono binaries and to configure it type the following commands:
-```
+---
+---
+> Using Mono is a practical way To creat an .exe file for Windows. 
+>
+>1. First, download the Mono binaries, and type the following commands to configure it :
+
+```bash
 wget --no-check-certificate http://raw.github.com/nathanb/iws- snippets/master/mono-install-scripts/ubuntu/install_mono-3.0.sh
 chmod 755 install_mono-3.0.sh
 ./install_mono-3.0.sh
 ```
-2. Then install the the MCS package:
-```
+
+>2. Then, install the the MCS package:
+```bash
 sudo apt-get install mcs
 ```
-3. After that, compile your program:
-```
+>3. After that, compile your program:
+```bash
 mcs program.cs
 ls
 program.cs program.exe
 ```
-4. Finally, run the program:
-```
+>4. Finally, run the program:
+```bash
 ./program.exe
 ```
 ---
+## HOW THE PROGRAM WORKS
+---
+---
+> This program contains three functions: refill, shift forward, and main. The main class uses those two others. 
+>
+> * **Shift forward class:** It takes a list of cylinders called “lst.” There is a temp list named “templst,” which includes the final input list of “lst” in the body. Then, a for ring gets other inputs and fills the “templst”.
+>
+>* **Refill class:** After taking an input list, it uses the “random” function to create random numbers between 1 to 27 and adds to the input list, which is the cylinder. If the input were equal to 26, it would exit from the while loop.
+>
+>* **Main class:** First, it refills cylinder1,2. Then, it prints their initial output strings.
+
+>It is used a do-while loop for the main part, and it exits by pressing the “**Esc**” key.
+It asks the input character, by “*Console.ReadKey()*".
+There are three "If loop" in this part:
+>
+>1. **Initial If:** 
+>
+>    * First, it shifts the cylinder1 and shows the contents. 
+>    * Then, it goes to the “relation” loop to find the relationship between the two cylinders and the output.
+>    * As the characters are constant in both cylinders and just the indexes change, to create "colFisrt," the index part's current character hints its number in the first cylinder's first column. After that, it finds the same digit on the second column. Next, it looks for the represented index in the first column of the second cylinder. Finally, it searches itself on the second column of the second cylinder.
+>2. **Second If:**
+>    * After completing the input text, press "Enter", then the ciphered text will appear. Also, it exits from the program by pressing the "exit" button.
+>3. **Third If:**
+>    * Symbols, numeric, spaces and special characters should not be encrypted. Also, it converts input text in upper case.
+---
 
 ## HOW TO RUN
---------------------
+---
+---
 
-The example below shows how this code works:
-By typing any character, the ciphered letter appears simultaneously. 
+> The example below shows how this code works:  
+> It is written, "Press key is:" that asks the string to encrypt. After completing the text, press "**Enter**", then the ciphered text will appear:
 
-```
+```c#
 Press Key is: cryptography
 Converted Keys is: LHVTMGIPIJCQ
 ```
-Each letter will never convert to itself, and because of cylinders rotation the previous encrypted text does not repeat.
+> Each letter will never convert to itself, and because of cylinders' rotation, the last encrypted text does not repeat.
 
-```
+```c#
 Press Key is: cryptography
 Converted Keys is: QZOMPZXYFZEP
 ```
-
-After 26 letters the outer cylinder clicks once.
-It is clear that symbols, numeric, spaces, and special characters should not be encrypted. Also, it converts input text in lower case.
-```
-Press Key is: "Mr. Jock, TV quiz PhD, bags few 1ynx"
-Converted Keys is: "GU. GUQL, UQ PAEI DCP, KKDO OOV 1JQA"
-----------------shifted cylinder1-----------------------
-[alph A 2 : 2][alph B 3 : 11][alph C 4 : 20][alph D 5 : 16][alph E 6 : 25][alph F 7 : 21][alph G 8 : 5][alph H 9 : 14][alph I 10 : 10][alph J 11 : 19][alph K 12 : 24][alph L 13 : 7][alph M 14 : 3][alph N 15 : 12][alph O 16 : 22][alph P 17 : 17][alph Q 18 : 1][alph R 19 : 15][alph S 20 : 4][alph T 21 : 9][alph U 22 : 18][alph V 23 : 23][alph W 24 : 26][alph X 25 : 8][alph Y 26 : 13][alph Z 1 : 6]
-
----------------shifted cylinder2-----------------------
-[alph A 2 : 2][alph B 3 : 11][alph C 4 : 20][alph D 5 : 16][alph E 6 : 25][alph F 7 : 21][alph G 8 : 5][alph H 9 : 14][alph I 10 : 10][alph J 11 : 19][alph K 12 : 24][alph L 13 : 7][alph M 14 : 3][alph N 15 : 12][alph O 16 : 22][alph P 17 : 17][alph Q 18 : 1][alph R 19 : 15][alph S 20 : 4][alph T 21 : 9][alph U 22 : 18][alph V 23 : 23][alph W 24 : 26][alph X 25 : 8][alph Y 26 : 13][alph Z 1 : 6]
-```
-----
+>It exits by pressing the “**Esc**” key.
+---
 
 ## REFRENCES
+---
 ---
 * *https://www.tutorialspoint.com/executing-chash-code-in-linux*
 * *https://www.youtube.com/watch?v=HUBNt18RFbo&list=PL4lCA8BnLs5c-C1SkVlUf2F0yjaZEk504&index=2*
 * *https://www.youtube.com/watch?v=UKbP3Rjxhy0*
+* https://stackoverflow.com/questions/18180958/does-code-exist-for-shifting-list-elements-to-left-or-right-by-specified-amount
+* https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-int-number
