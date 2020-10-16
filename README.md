@@ -87,7 +87,7 @@ There are three "If loop" in this part:
 >2. **Second If:**
 >    * After completing the input text, press "Enter", then the ciphered text will appear. Also, it exits from the program by pressing the "exit" button.
 >3. **Third If:**
->    * Symbols, numeric, spaces and special characters should not be encrypted. Also, it converts input text in upper case.
+>    * Symbols, numeric, spaces and special characters should not be encrypted. Also, it converts input text in lower case.
 ---
 
 ## HOW TO RUN
@@ -99,15 +99,22 @@ There are three "If loop" in this part:
 
 ```c#
 Press Key is: cryptography
-Converted Keys is: LHVTMGIPIJCQ
+Converted Keys is: fenlgffqjvvd
 ```
 > Each letter will never convert to itself, and because of cylinders' rotation, the last encrypted text does not repeat.
 
 ```c#
 Press Key is: cryptography
-Converted Keys is: QZOMPZXYFZEP
+Converted Keys is: pdzilcchnfcc
 ```
->It exits by pressing the “**Esc**” key.
+>It exits by pressing the “**Esc**” key. To show the current situation of two cylinders, type the word "**print**".
+```c#
+Press Key is: print
+----------------shifted cylinder1--Inner Cylinder---------------------
+[alph A 22 : 15][alph B 23 : 4][alph C 24 : 9][alph D 25 : 17][alph E 26 : 26][alph F 1 : 20][alph G 2 : 3][alph H 3 : 13][alph I 4 : 8][alph J 5 : 18][alph K 6 : 23][alph L 7 : 6][alph M 8 : 2][alph N 9 : 11][alph O 10 : 16][alph P 11 : 25][alph Q 12 : 21][alph R 13 : 5][alph S 14 : 14][alph T 15 : 10][alph U 16 : 19][alph V 17 : 24][alph W 18 : 7][alph X 19 : 12][alph Y 20 : 22][alph Z 21 : 1]
+---------------shifted cylinder2--Outer Cylinder--------
+[alph A 1 : 26][alph B 2 : 22][alph C 3 : 5][alph D 4 : 1][alph E 5 : 10][alph F 6 : 19][alph G 7 : 15][alph H 8 : 25][alph I 9 : 8][alph J 10 : 4][alph K 11 : 13][alph L 12 : 9][alph M 13 : 18][alph N 14 : 23][alph O 15 : 6][alph P 16 : 16][alph Q 17 : 11][alph R 18 : 21][alph S 19 : 17][alph T 20 : 14][alph U 21 : 24][alph V 22 : 3][alph W 23 : 7][alph X 24 : 12][alph Y 25 : 20][alph Z 26 : 2]
+```
 ---
 
 ## REFRENCES
